@@ -190,9 +190,8 @@ module Nom
             end
             input_dat.close
 
-            svg = Tempfile.new(["plot", ".svg"])
+            svg = Tempfile.create(["plot", ".svg"])
             svg.close
-            ObjectSpace.undefine_finalizer(svg) # prevent the svg file from being deleted
 
             plt_erb = IO.read(File.join(File.dirname(File.expand_path(__FILE__)), "nom.plt.erb"))
 
